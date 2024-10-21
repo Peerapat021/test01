@@ -14,9 +14,9 @@ class StudentController {
 
   // ฟังก์ชันเพิ่มนักเรียน
   addStudent(req, res) {
-    const { name, age } = req.body;
-    const query = "INSERT INTO students (name, age) VALUES (?, ?)";
-    db.query(query, [name, age], (err, results) => {
+    const { name, age, grade } = req.body;
+    const query = "INSERT INTO students (name, age, grade) VALUES (?, ?, ?)";
+    db.query(query, [name, age, grade], (err, results) => {
       if (err) {
         return res.status(500).json({ error: err.message });
       }
